@@ -1,4 +1,4 @@
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
 
 from components.navigation.navbar_component import NavbarComponent
 from components.navigation.sidebar_component import SidebarComponent
@@ -16,13 +16,10 @@ class CoursesPage(BasePage):
         self.sidebar = SidebarComponent(page)
         self.course_view = CourseViewComponent(page)
         self.toolbar_view = CoursesListToolbarViewComponent(page)
-        self.empty_view = EmptyViewComponent(page, 'courses-list')
-
+        self.empty_view = EmptyViewComponent(page, 'courses-list', 'Courses list')
 
     def check_visible_empty_view(self):
         self.empty_view.check_visible(
             title='There is no results',
             description='Results from the load test pipeline will be displayed here'
         )
-
-
