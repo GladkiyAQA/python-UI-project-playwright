@@ -13,7 +13,7 @@ class ChartViewComponent(BaseComponent):
         self.title = Text(page, f'{identifier}-widget-title-text', 'Title')
         self.chart = Image(page, f'{identifier}-{chart_type}-chart', 'Chart')
 
-    @allure.step('Check visible chart "{expected_title}"')
+    @allure.step('Check visible chart "{title}"')
     def check_visible(self, title: str):
         self.title.check_visible()
         self.title.check_have_text(title)
