@@ -38,6 +38,10 @@ class Settings(BaseSettings):
     tracing_dir: DirectoryPath
     browser_state_file: FilePath
 
+    def get_base_url(self) -> str:
+        url = str(self.app_url)
+        return url if url.endswith("/") else f"{url}/"
+
     @classmethod
     def initialize(cls) -> Self:
         videos_dir = DirectoryPath("./videos")

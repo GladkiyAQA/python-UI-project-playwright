@@ -2,12 +2,14 @@ import allure
 import pytest
 from allure_commons.types import Severity
 
+from config import settings
 from pages.courses.create_course_page import CreateCoursePage
 from pages.courses.courses_page import CoursesPage
 from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
 from tools.allure.stories import AllureStory
 from tools.allure.tags import AllureTag
+from tools.routes import AppRoute
 
 
 @pytest.mark.courses
@@ -23,7 +25,7 @@ class TestCourses:
     @allure.title("Create course")
     @allure.severity(Severity.CRITICAL)
     def test_create_course(self, create_course_page: CreateCoursePage, courses_page: CoursesPage):
-        create_course_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
+        create_course_page.visit(AppRoute.COURSES_CREATE)
 
         create_course_page.toolbar.check_visible()
 
@@ -40,7 +42,7 @@ class TestCourses:
         create_course_page.exercises_toolbar.check_visible()
         create_course_page.check_visible_exercises_empty_view()
 
-        create_course_page.image_upload_widget.upload_preview_image('./test-data/files/image.png')
+        create_course_page.image_upload_widget.upload_preview_image(settings.test_data.image_png_file)
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
 
         create_course_page.form.fill(
@@ -65,10 +67,10 @@ class TestCourses:
     @allure.title("Check displaying of empty courses list")
     @allure.severity(Severity.NORMAL)
     def test_empty_courses_list(self, courses_page: CoursesPage):
-        courses_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses")
+        courses_page.visit(AppRoute.COURSES)
 
         courses_page.sidebar.check_visible()
-        courses_page.navbar.check_visible("username")
+        courses_page.navbar.check_visible(settings.test_user.username)
 
         courses_page.toolbar_view.check_visible()
         courses_page.empty_view.check_visible(
@@ -79,12 +81,12 @@ class TestCourses:
     @allure.title("Edit course")
     @allure.severity(Severity.CRITICAL)
     def test_edit_course(self, create_course_page: CreateCoursePage, courses_page: CoursesPage):
-        create_course_page.visit("https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/courses/create")
+        create_course_page.visit(AppRoute.COURSES_CREATE)
 
         create_course_page.toolbar.check_visible()
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=False)
 
-        create_course_page.image_upload_widget.upload_preview_image("./test-data/files/image.png")
+        create_course_page.image_upload_widget.upload_preview_image(settings.test_data.image_png_file)
         create_course_page.image_upload_widget.check_visible(is_image_uploaded=True)
 
         create_course_page.form.fill(

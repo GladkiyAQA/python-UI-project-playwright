@@ -7,6 +7,7 @@ from tools.allure.epics import AllureEpic
 from tools.allure.features import AllureFeature
 from tools.allure.stories import AllureStory
 from tools.allure.tags import AllureTag
+from tools.routes import AppRoute
 
 
 @pytest.mark.dashboard
@@ -23,7 +24,7 @@ class TestDashboard:
     @allure.severity(Severity.NORMAL)
     def test_dashboard_displaying(self, dashboard_page_with_state: DashboardPage):
         dashboard_page_with_state.visit(
-            "https://nikita-filonov.github.io/qa-automation-engineer-ui-course/#/dashboard"
+            AppRoute.DASHBOARD
         )
 
         dashboard_page_with_state.sidebar.check_visible()
