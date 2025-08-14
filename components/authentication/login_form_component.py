@@ -4,7 +4,7 @@ from components.base_component import BaseComponent
 from elements.input import Input
 
 
-class LoginFormComponent(BaseComponent):
+class LoginFormComponent(BaseComponent ):
     def __init__(self, page: Page):
         super().__init__(page)
 
