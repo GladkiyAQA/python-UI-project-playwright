@@ -16,7 +16,7 @@ class LoginFormComponent(BaseComponent):
         self.email_input.fill(email)
         self.password_input.fill(password)
 
-    @allure.step("Check visible login form ")
+    @allure.step("Check visible login form")
     def check_visible(self, email: str = "", password: str = ""):
         self.email_input.check_visible()
         self.password_input.check_visible()
