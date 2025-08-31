@@ -7,9 +7,26 @@ on [GitHub](https://github.com/Nikita-Filonov/qa-automation-engineer-ui-course).
 
 ## Project Overview
 
-The goal of this project is to automate the testing of the UI Course application. The automated tests verify various
-functionalities of the application to ensure its stability and correctness. The project structure follows best practices
-for organizing test code with clear, maintainable scripts.
+The goal of this project is to automate the testing of the **UI Course application**.  
+The automated tests verify various functionalities of the application to ensure its stability and correctness.  
+The project structure follows best practices for organizing test code with clear, maintainable scripts.
+
+This project is designed as a **production-ready automation testing framework**.  
+It is built using well-established design patterns such as **Page Object, Page Component, and Page Factory**,  
+which ensure scalability, reusability, and clean separation of concerns.
+
+### 🔧 Tech Stack
+- **Python** – core programming language  
+- **Pytest** – test runner and framework  
+- **Playwright** – browser automation for UI testing  
+- **Allure** – reporting and visualization of test results  
+- **and more**
+ 
+### 📊 Test Coverage & Reporting
+UI test coverage is measured with a unique tool: **ui-coverage-tool**,  
+which visualizes automated test actions directly on the live interface.  
+This allows teams to clearly see which parts of the application are covered by automation,  
+helping to identify gaps and optimize test efforts.
 
 ## Getting Started
 
